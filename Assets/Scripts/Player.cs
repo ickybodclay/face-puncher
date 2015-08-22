@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Player : MonoBehaviour {
 
-	public AudioClip startSfx;
+	public AudioClip[] startSfx;
 	public AudioClip punchSfx;
 	public AudioClip koSfx;
 	public AudioClip finisherSfx;
@@ -27,7 +27,7 @@ public class Player : MonoBehaviour {
 		leftFist.GetComponent<SpriteRenderer> ().color = Color.red;
 		rightFist.GetComponent<SpriteRenderer> ().color = Color.red;
 
-		SoundManager.instance.PlaySingle (startSfx);
+		SoundManager.instance.PlaySingle (startSfx[0]);
 		isStarting = true;
 		Invoke ("DelayStart", 2f);
 	}
@@ -88,6 +88,6 @@ public class Player : MonoBehaviour {
 	void Restart() {
 		GameManager.instance.StartNewLevel ();
 		isRestarting = false;
-		SoundManager.instance.PlaySingle (startSfx);
+		SoundManager.instance.PlaySingle (startSfx[0]);
 	}
 }

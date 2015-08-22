@@ -27,6 +27,12 @@ public class Enemy : MonoBehaviour {
 		position.x = Random.Range (-0.1f, 0.1f);
 		position.y = 0;
 		transform.localPosition = position;
+
+		float r = Random.Range (0f, 1f);
+		float g = Random.Range (0f, 1f);
+		float b = Random.Range (0f, 1f);
+
+		GetComponent<SpriteRenderer> ().color = new Color (r, g, b);
 	}
 
 	void Update () {
