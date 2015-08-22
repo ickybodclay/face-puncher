@@ -20,6 +20,7 @@ public class SoundManager : MonoBehaviour {
 	}
 
 	public void PlaySingle (AudioClip clip) {
+		sfxSource.pitch = 1;
 		sfxSource.clip = clip;
 		sfxSource.Play ();
 	}
@@ -29,7 +30,8 @@ public class SoundManager : MonoBehaviour {
 		float randomPitch = Random.Range (lowPitchRange, hiPitchRange);
 
 		sfxSource.pitch = randomPitch;
-		sfxSource.clip = clips [randomIndex];
-		sfxSource.Play ();
+		sfxSource.PlayOneShot (clips [randomIndex]);
+		//sfxSource.clip = clips [randomIndex];
+		//sfxSource.Play ();
 	}
 }

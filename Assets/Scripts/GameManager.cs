@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour {
 	public static GameManager instance = null;
 	public static LevelManager levelManager;
 
+	private int level = 1;
 	private List<Enemy> enemies; 
 
 	void Awake() {
@@ -25,7 +26,12 @@ public class GameManager : MonoBehaviour {
 	void InitGame() {
 		enemies.Clear ();
 		levelManager = GetComponent<LevelManager> ();
-		levelManager.SetupScene (0);
+		levelManager.SetupScene (level);
+	}
+
+	void OnLevelWasLoaded(int index) {
+		level++;
+		levelManager.SetupScene (level);
 	}
 
 	public void AddEnemy(Enemy enemy) {
@@ -38,5 +44,17 @@ public class GameManager : MonoBehaviour {
 
 	public Enemy GetEnemy (int index) {
 		return enemies[index];
+	}
+
+	public int GetEnemyListSize() {
+		return enemies.Count;
+	}
+
+	public bool HasEnemies() {
+		return enemies.Count > 0;
+	}
+
+	public void StartNewLevel() {
+		Application.LoadLevel (Application.loadedLevel);
 	}
 }

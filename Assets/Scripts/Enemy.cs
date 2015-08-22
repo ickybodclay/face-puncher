@@ -2,7 +2,6 @@
 using System.Collections;
 
 public class Enemy : MonoBehaviour {
-
 	private Animator animator;
 	private bool isFlipped;
 	private int health;
@@ -10,17 +9,31 @@ public class Enemy : MonoBehaviour {
 	void Start () {
 		GameManager.instance.AddEnemy (this);
 
+		Randomize ();
+
 		animator = GetComponent<Animator> ();
 
 		isFlipped = false;
-		health = Random.Range (1, 3);
+		health = Random.Range (3, 5);
+	}
+
+	void Randomize() {
+		Vector3 scale = transform.localScale;
+		scale.x = Random.Range (0.65f, 0.75f);
+		scale.y = Random.Range (0.65f, 0.75f);
+		transform.localScale = scale;
+
+		Vector3 position = transform.localPosition;
+		position.x = Random.Range (-0.1f, 0.1f);
+		position.y = 0;
+		transform.localPosition = position;
 	}
 
 	void Update () {
 	
 	}
 
-	public void TakeDamage(bool isLeftPunch) {
+	public void TakeDamage(bool isLeftPunch, out bool knockedOut) {
 		if (isLeftPunch && isFlipped) {
 			Flip ();
 		} else if(!isLeftPunch && !isFlipped) {
@@ -29,8 +42,9 @@ public class Enemy : MonoBehaviour {
 
 		animator.SetTrigger ("Hit");
 		health--;
+		knockedOut = health <= 0;
 
-		if (health <= 0) {
+		if (knockedOut) {
 			animator.SetBool ("KnockedOut", true);
 			StartCoroutine(KnockOut());
 		}
