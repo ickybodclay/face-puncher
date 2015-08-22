@@ -32,6 +32,10 @@ public class GameManager : MonoBehaviour {
 		enemies.Add (enemy);
 	}
 
+	public void RemoveEnemy(int index) {
+		enemies.RemoveAt (index);
+	}
+
 	public Enemy GetEnemy (int index) {
 		return enemies[index];
 	}

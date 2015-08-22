@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Player : MonoBehaviour {
 
+	public AudioClip punchSfx;
+
 	private GameObject leftFist;
 	private Animator leftFistAnimator;
 	private GameObject rightFist;
@@ -20,11 +22,11 @@ public class Player : MonoBehaviour {
 	}
 
 	void HandleInput() {
-		if (Input.GetMouseButtonDown (0)) {
+		if (Input.GetMouseButtonDown (0) || Input.GetKeyDown(KeyCode.Q)) {
 			punchLeft();
 		}
 
-		if (Input.GetMouseButtonDown (1)) {
+		if (Input.GetMouseButtonDown (1) || Input.GetKeyDown(KeyCode.W)) {
 			punchRight();
 		}
 	}
@@ -32,10 +34,12 @@ public class Player : MonoBehaviour {
 	void punchLeft() {
 		leftFistAnimator.SetTrigger ("punch");
 		GameManager.instance.GetEnemy (0).TakeDamage (true);
+		SoundManager.instance.RandomSfx (punchSfx);
 	}
 
 	void punchRight() {
 		rightFistAnimator.SetTrigger ("punch");
 		GameManager.instance.GetEnemy (0).TakeDamage (false);
+		SoundManager.instance.RandomSfx (punchSfx);
 	}
 }

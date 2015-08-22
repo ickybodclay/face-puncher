@@ -5,6 +5,7 @@ public class Enemy : MonoBehaviour {
 
 	private Animator animator;
 	private bool isFlipped;
+	private int health;
 	
 	void Start () {
 		GameManager.instance.AddEnemy (this);
@@ -12,6 +13,7 @@ public class Enemy : MonoBehaviour {
 		animator = GetComponent<Animator> ();
 
 		isFlipped = false;
+		health = Random.Range (1, 3);
 	}
 
 	void Update () {
@@ -26,6 +28,18 @@ public class Enemy : MonoBehaviour {
 		}
 
 		animator.SetTrigger ("Hit");
+		health--;
+
+		if (health <= 0) {
+			animator.SetBool ("KnockedOut", true);
+			StartCoroutine(KnockOut());
+		}
+	}
+
+	private IEnumerator KnockOut () {
+		yield return new WaitForSeconds(0.25f);
+		GameManager.instance.RemoveEnemy (0); // cheat since first enemy is always one you are punching
+		Destroy (this.gameObject);
 	}
 
 	public void Flip() {

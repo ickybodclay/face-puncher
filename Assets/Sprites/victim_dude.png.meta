@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 7cc6a1eea51d92d4f87114602d7ca1f9
-timeCreated: 1440225356
+timeCreated: 1440250629
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -10,6 +10,9 @@ TextureImporter:
     21300006: take_damage_0
     21300008: take_damage_1
     21300010: take_damage_2
+    21300012: victim_knockout_0
+    21300014: victim_knockout_1
+    21300016: victim_knockout_2
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -110,6 +113,36 @@ TextureImporter:
         serializedVersion: 2
         x: 1024
         y: 1024
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: victim_knockout_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: victim_knockout_1
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 512
+        height: 512
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: victim_knockout_2
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 512
         width: 512
         height: 512
       alignment: 7
