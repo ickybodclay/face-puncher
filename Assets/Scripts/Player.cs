@@ -24,8 +24,8 @@ public class Player : MonoBehaviour {
 
 		isRestarting = false;
 
-		leftFist.GetComponent<SpriteRenderer> ().color = Color.red;
-		rightFist.GetComponent<SpriteRenderer> ().color = Color.red;
+		//leftFist.GetComponent<SpriteRenderer> ().color = Color.red;
+		//rightFist.GetComponent<SpriteRenderer> ().color = Color.red;
 
 		SoundManager.instance.PlaySingle (startSfx[0]);
 		isStarting = true;

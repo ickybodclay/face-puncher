@@ -1,12 +1,12 @@
 fileFormatVersion: 2
 guid: e442cbea00598ba44998a9c7dea72427
-timeCreated: 1440273046
+timeCreated: 1440285617
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: ring_punch_0
-    21300002: ring_punch_1
-    21300004: ring_punch_2
+    21300000: punch_0
+    21300002: punch_1
+    21300004: punch_2
     21300006: fist_punch_2
     21300008: fist_punch_1
     21300010: fist_punch_0
@@ -56,7 +56,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: ring_punch_0
+    - name: punch_0
       rect:
         serializedVersion: 2
         x: 143
@@ -66,7 +66,7 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: ring_punch_1
+    - name: punch_1
       rect:
         serializedVersion: 2
         x: 267
@@ -76,43 +76,13 @@ TextureImporter:
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: ring_punch_2
+    - name: punch_2
       rect:
         serializedVersion: 2
         x: 419
         y: 76
         width: 164
         height: 108
-      alignment: 6
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: fist_punch_2
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 1
-        width: 161
-        height: 108
-      alignment: 6
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: fist_punch_1
-      rect:
-        serializedVersion: 2
-        x: 163
-        y: 17
-        width: 150
-        height: 82
-      alignment: 6
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: fist_punch_0
-      rect:
-        serializedVersion: 2
-        x: 314
-        y: 11
-        width: 123
-        height: 64
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
