@@ -31,9 +31,11 @@ public class Player : MonoBehaviour {
 
 	void punchLeft() {
 		leftFistAnimator.SetTrigger ("punch");
+		GameManager.instance.GetEnemy (0).TakeDamage (true);
 	}
 
 	void punchRight() {
 		rightFistAnimator.SetTrigger ("punch");
+		GameManager.instance.GetEnemy (0).TakeDamage (false);
 	}
 }
