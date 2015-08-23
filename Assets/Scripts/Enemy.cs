@@ -14,7 +14,13 @@ public class Enemy : MonoBehaviour {
 		animator = GetComponent<Animator> ();
 
 		isFlipped = false;
-		health = Random.Range (3, 5);
+
+		if (CompareTag ("WeakEnemy")) {
+			health = 1;
+		} 
+		else {
+			health = Random.Range (3, 5);
+		}
 	}
 
 	void Randomize() {
@@ -42,7 +48,8 @@ public class Enemy : MonoBehaviour {
 	public void TakeDamage(bool isLeftPunch, out bool knockedOut) {
 		if (isLeftPunch && isFlipped) {
 			Flip ();
-		} else if(!isLeftPunch && !isFlipped) {
+		} 
+		else if(!isLeftPunch && !isFlipped) {
 			Flip ();
 		}
 

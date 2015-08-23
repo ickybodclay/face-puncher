@@ -16,7 +16,11 @@ public class LevelManager : MonoBehaviour {
 		levelHolder = new GameObject ("Level").transform;
 
 		for (int i=0; i<level; ++i) {
-			GameObject eInstance = Instantiate (victims[0], new Vector3 (0f, -1.4f, 0f), Quaternion.identity) as GameObject;
+			int victimIndex = 0;
+
+			if(Random.value > 0.8f) victimIndex = 1;
+
+			GameObject eInstance = Instantiate (victims[victimIndex], new Vector3 (0f, -1.4f, 0f), Quaternion.identity) as GameObject;
 			eInstance.transform.SetParent (levelHolder);
 		}
 	}
