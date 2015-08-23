@@ -73,7 +73,7 @@ public class Player : MonoBehaviour {
 			if (GameManager.instance.GetEnemyListSize () == 1) {
 				SoundManager.instance.PlaySingle (finisherSfx);
 				isRestarting = true;
-				Invoke ("Restart", 3f);
+				Invoke ("Restart", 4f);
 			}
 			else {
 				SoundManager.instance.RandomSfx (koSfx);
