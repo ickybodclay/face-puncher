@@ -10,10 +10,6 @@ public class LevelManager : MonoBehaviour {
 
 	private static readonly float WEAK_SPAWN_CHANCE = 0.3f;
 
-	void SetupLocation () {
-		// TODO pick location and set background
-	}
-
 	void SetupVictims (int level) {
 		levelHolder = new GameObject ("Level").transform;
 
@@ -29,7 +25,6 @@ public class LevelManager : MonoBehaviour {
 
 	public void SetupScene (int level) {
 		print ("Setup: current level = " + level);
-		SetupLocation ();
 		SetupVictims (level);
 	}
 }

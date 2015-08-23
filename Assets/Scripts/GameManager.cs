@@ -57,4 +57,8 @@ public class GameManager : MonoBehaviour {
 	public void StartNewLevel() {
 		Application.LoadLevel (Application.loadedLevel);
 	}
+
+	public int GetCurrentLevel() {
+		return level;
+	}
 }
