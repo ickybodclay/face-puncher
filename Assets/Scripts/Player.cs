@@ -67,17 +67,17 @@ public class Player : MonoBehaviour {
 	}
 
 	void playSfx(bool knockedOut) {
-		SoundManager.instance.RandomSfx (punchSfx);
-
 		if (knockedOut) {
+			SoundManager.instance.RandomSfx (koSfx);
+
 			if (GameManager.instance.GetEnemyListSize () == 1) {
 				SoundManager.instance.PlaySingle (finisherSfx);
 				isRestarting = true;
 				Invoke ("Restart", 4f);
 			}
-			else {
-				SoundManager.instance.PlaySingle (koSfx);
-			}
+		} 
+		else {
+			SoundManager.instance.RandomSfx (punchSfx);
 		}
 	}
 
