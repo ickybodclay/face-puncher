@@ -13,6 +13,7 @@ public class Player : MonoBehaviour {
 	private GameObject rightFist;
 	private Animator rightFistAnimator;
 
+	private bool hasStarted;
 	private bool isStarting;
 	private bool isRestarting;
 	
@@ -22,14 +23,26 @@ public class Player : MonoBehaviour {
 		rightFist = transform.Find ("RightFist").gameObject;
 		rightFistAnimator = rightFist.GetComponent<Animator> ();
 
-		isRestarting = false;
-
 		//leftFist.GetComponent<SpriteRenderer> ().color = Color.red;
 		//rightFist.GetComponent<SpriteRenderer> ().color = Color.red;
 
+		hasStarted = false;
+		isRestarting = false;
+	}
+
+	void StartLevel() {
 		SoundManager.instance.PlaySingle (startSfx[0]);
 		isStarting = true;
 		Invoke ("DelayStart", 2f);
+	}
+
+	void DelayStart() {
+		isStarting = false;
+	}
+
+	void Restart() {
+		GameManager.instance.StartNewLevel ();
+		isRestarting = false;
 	}
 
 	void Update () {
@@ -37,6 +50,14 @@ public class Player : MonoBehaviour {
 	}
 
 	void HandleInput() {
+		if (GameManager.levelManager.isStarting ()) {
+			return;
+		} 
+		else if(!hasStarted) {
+			StartLevel();
+			hasStarted = true;
+		}
+
 		if (isStarting || isRestarting) {
 			return;
 		}
@@ -79,15 +100,5 @@ public class Player : MonoBehaviour {
 		else {
 			SoundManager.instance.RandomSfx (punchSfx);
 		}
-	}
-
-	void DelayStart() {
-		isStarting = false;
-	}
-
-	void Restart() {
-		GameManager.instance.StartNewLevel ();
-		isRestarting = false;
-		SoundManager.instance.PlaySingle (startSfx[0]);
 	}
 }
