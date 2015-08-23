@@ -3,7 +3,7 @@ using System.Collections;
 
 public class SoundManager : MonoBehaviour {
 	public AudioSource sfxSource;
-	public AudioSource musicSource;
+	public AudioSource randomSfxSource;
 	public static SoundManager instance = null;
 
 	public float lowPitchRange = 0.95f;
@@ -29,9 +29,7 @@ public class SoundManager : MonoBehaviour {
 		int randomIndex = Random.Range (0, clips.Length);
 		float randomPitch = Random.Range (lowPitchRange, hiPitchRange);
 
-		sfxSource.pitch = randomPitch;
-		sfxSource.PlayOneShot (clips [randomIndex]);
-		//sfxSource.clip = clips [randomIndex];
-		//sfxSource.Play ();
+		randomSfxSource.pitch = randomPitch;
+		randomSfxSource.PlayOneShot (clips [randomIndex]);
 	}
 }

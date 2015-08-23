@@ -8,6 +8,8 @@ public class LevelManager : MonoBehaviour {
 
 	private Transform levelHolder; 
 
+	private static readonly float WEAK_SPAWN_CHANCE = 0.3f;
+
 	void SetupLocation () {
 		// TODO pick location and set background
 	}
@@ -18,7 +20,7 @@ public class LevelManager : MonoBehaviour {
 		for (int i=0; i<level; ++i) {
 			int victimIndex = 0;
 
-			if(Random.value > 0.8f) victimIndex = 1;
+			if(Random.value <= WEAK_SPAWN_CHANCE) victimIndex = 1;
 
 			GameObject eInstance = Instantiate (victims[victimIndex], new Vector3 (0f, -1.4f, 0f), Quaternion.identity) as GameObject;
 			eInstance.transform.SetParent (levelHolder);

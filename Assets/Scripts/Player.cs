@@ -76,7 +76,7 @@ public class Player : MonoBehaviour {
 				Invoke ("Restart", 4f);
 			}
 			else {
-				SoundManager.instance.RandomSfx (koSfx);
+				SoundManager.instance.PlaySingle (koSfx);
 			}
 		}
 	}
